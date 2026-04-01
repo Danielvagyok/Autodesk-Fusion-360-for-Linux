@@ -661,7 +661,7 @@ is_snap_firefox_installed() {
 
 check_install_firefox_deb() {
     # Function to check if Firefox is installed via Snap
-    is_snap_firefox_installed {
+    is_snap_firefox_installed() {
         snap list firefox &> /dev/null
         return $?
     }
@@ -678,7 +678,7 @@ check_install_firefox_deb() {
             echo "Proceeding with the uninstallation of the Snap version and installation of the DEB version..."
 
             # Uninstall Firefox Snap
-            sudo snap remove -y firefox
+            sudo snap remove firefox
 
             # Create an APT keyring directory if it doesn't exist
             sudo install -d -m 0755 /etc/apt/keyrings
